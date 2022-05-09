@@ -6,6 +6,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ListComponent } from './list/list.component';
 import { ButtonComponent } from './button/button.component';
 import { AddmodalComponent } from './addmodal/addmodal.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { AddmodalComponent } from './addmodal/addmodal.component';
   ],
   imports: [
     BrowserModule,
-    NgbModule
+    NgbModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

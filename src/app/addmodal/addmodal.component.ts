@@ -9,9 +9,16 @@ import { FormBuilder,FormGroup } from '@angular/forms';
 })
 export class AddmodalComponent implements OnInit{
   closeResult = '';
-  constructor(private modalService: NgbModal) {}
+  formValue!:FormGroup;
+  constructor(private modalService: NgbModal,private formBuilder:FormBuilder) {}
+
   ngOnInit(): void {
-    throw new Error('Method not implemented.');
+    this.formValue=this.formBuilder.group({
+      filmname:[''],
+      filmrelease:[''],
+      filmdirector:[''],
+      filmactors:['']
+    })
   }
 
   open(content: any) {

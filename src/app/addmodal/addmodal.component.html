@@ -4,7 +4,7 @@
       <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
     </div>
     <div class="modal-body">
-      <form>
+      <form [formGroup]="formValue">
         <div class="mb-3">
           <label for="filmname">Film címe</label>
           <input id="filmname" class="form-control">
