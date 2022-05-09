@@ -6,6 +6,7 @@
     <th scope="col">Megjelenés dátuma</th>
     <th scope="col">Rendezte</th>
     <th scope="col">Szereplők</th>
+    <th scope="col">Művelet</th>
   </tr>
   </thead>
   <tbody>
@@ -17,6 +18,11 @@
     <td>{{ Film.release }}</td>
     <td>{{ Film.director }}</td>
     <td>{{ Film.actors }}</td>
+    <td>
+      <mm-button></mm-button>
+      <button type="button" class="btn btn-primary">Szerkesztés</button>
+      <button type="button" class="btn btn-danger">Törlés</button>
+    </td>
   </tr>
   </tbody>
 </table>

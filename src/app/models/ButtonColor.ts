@@ -1,0 +1,1 @@
+export type ButtonColor = 'btn-primary' | 'btn-danger' | 'btn-success'|'unset';
