@@ -1,14 +1,18 @@
 import { Component, OnInit } from '@angular/core';
 import {NgbModal, ModalDismissReasons} from '@ng-bootstrap/ng-bootstrap';
+import { FormBuilder,FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'mm-addmodal',
   templateUrl: './addmodal.component.html',
   styleUrls: ['./addmodal.component.scss']
 })
-export class AddmodalComponent{
+export class AddmodalComponent implements OnInit{
   closeResult = '';
   constructor(private modalService: NgbModal) {}
+  ngOnInit(): void {
+    throw new Error('Method not implemented.');
+  }
 
   open(content: any) {
     this.modalService.open(content, {ariaLabelledBy: 'modal-basic-title'}).result.then((result) => {
