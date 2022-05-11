@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FilmModel } from './filmmodel';
 
 interface Film {
   name: string;
@@ -28,12 +29,12 @@ const FilmList: Film[] = [
   templateUrl: './list.component.html',
   styleUrls: ['./list.component.scss']
 })
-export class ListComponent {
-
-  /* constructor() { }
+export class ListComponent implements OnInit{
+   filmModelObj:FilmModel=new FilmModel();
+   constructor() { }
 
   ngOnInit(): void {
-  } */
+  } 
 
   films = FilmList;
 

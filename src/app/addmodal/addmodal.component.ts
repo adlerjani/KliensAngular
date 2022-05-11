@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {NgbModal, ModalDismissReasons} from '@ng-bootstrap/ng-bootstrap';
 import { FormBuilder,FormGroup } from '@angular/forms';
+import { FilmModel } from '../list/filmmodel';
+import { ApiService } from '../shared/api.service';
 
 @Component({
   selector: 'mm-addmodal',
@@ -10,7 +12,8 @@ import { FormBuilder,FormGroup } from '@angular/forms';
 export class AddmodalComponent implements OnInit{
   closeResult = '';
   formValue!:FormGroup;
-  constructor(private modalService: NgbModal,private formBuilder:FormBuilder) {}
+  filmModelObj:FilmModel=new FilmModel();
+  constructor(private modalService: NgbModal,private formBuilder:FormBuilder,private api:ApiService) {}
 
   ngOnInit(): void {
     this.formValue=this.formBuilder.group({
@@ -18,6 +21,19 @@ export class AddmodalComponent implements OnInit{
       filmrelease:[''],
       filmdirector:[''],
       filmactors:['']
+    })
+  }
+
+  postFilmDetails(){
+    this.filmModelObj.name=this.formValue.value.filmname;
+    this.filmModelObj.release=this.formValue.value.filmrelease;
+    this.filmModelObj.director=this.formValue.value.filmdirector;
+    this.filmModelObj.actors=this.formValue.value.filmactors;
+
+    this.api.postFilm(this.filmModelObj)
+    .subscribe(res=>{
+      console.log(res);
+      alert("jó")
     })
   }
 

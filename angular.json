@@ -92,15 +92,10 @@
         },
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
-          "configurations": {
-            "production": {
-              "browserTarget": "films:build:production"
-            },
-            "development": {
-              "browserTarget": "films:build:development"
-            }
-          },
-          "defaultConfiguration": "development"
+          "options": {
+              "browserTarget": "films:build",
+              "proxyConfig": "src/proxy.conf.json"
+          }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
