@@ -10,14 +10,14 @@ export class ApiService {
   constructor(private http: HttpClient) { }
 
   postFilm(data: any){
-    return this.http.post<any>("http://localhost:3000/posts/1", data)
+    return this.http.post<any>("http://localhost:3004/posts/1", data)
     .pipe(map((res:any)=>{
       return res;
     }))
   }
 
   getFilm(data: any){
-    return this.http.get<any>("http://localhost:3000/posts/1", data)
+    return this.http.get<any>("http://localhost:3004/posts/1", data)
     .pipe(map((res:any)=>{
       return res;
     }))
