@@ -46,6 +46,7 @@ export class AddmodalComponent implements OnInit{
       //alert(this.formValue.value.filmname)
       //this.formValue.reset();
       this.getAllFilms()
+      window.location.reload()
     })
     }
     

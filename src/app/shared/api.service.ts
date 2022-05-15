@@ -23,4 +23,11 @@ export class ApiService {
     }))
   }
 
+  deleteFilm(data:any){
+    return this.http.delete("http://localhost:3004/posts/"+data)
+    .pipe(map((res:any)=>{
+      return res;
+    }))
+  }
+
 }

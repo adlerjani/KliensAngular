@@ -49,4 +49,11 @@ export class ListComponent implements OnInit{
     })
   }
 
+  deleteFilm(row:any){
+    this.api.deleteFilm(row.id).subscribe(res=>{
+      //alert("törölve");
+      this.getAllFilms();
+    })
+  }
+
 }

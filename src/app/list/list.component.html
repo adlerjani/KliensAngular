@@ -20,7 +20,7 @@
     <td>{{ row.actors }}</td>
     <td>
       <button type="button" class="btn btn-primary">Szerkesztés</button>
-      <button type="button" class="btn btn-danger">Törlés</button>
+      <button type="button" class="btn btn-danger" (click)="deleteFilm(row)">Törlés</button>
     </td>
   </tr>
   </tbody>

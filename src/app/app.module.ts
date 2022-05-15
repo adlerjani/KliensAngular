@@ -8,13 +8,15 @@ import { ButtonComponent } from './button/button.component';
 import { AddmodalComponent } from './addmodal/addmodal.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { EditmodalComponent } from './editmodal/editmodal.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ListComponent,
     ButtonComponent,
-    AddmodalComponent
+    AddmodalComponent,
+    EditmodalComponent
   ],
   imports: [
     BrowserModule,
