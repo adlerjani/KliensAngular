@@ -7,25 +7,26 @@
       <form [formGroup]="formValue">
         <div class="mb-3">
           <label for="filmname">Film címe</label>
-          <input id="filmname" class="form-control">
+          <input id="filmname" formControlName="filmname" class="form-control">
         </div>
         <div class="mb-3">
             <label for="filmrelease">Megjelenés dátuma</label>
-            <input id="filmrelease" class="form-control">
+            <input id="filmrelease" formControlName="filmrelease" class="form-control">
           </div>
           <div class="mb-3">
             <label for="filmdirector">Rendezte</label>
-            <input id="filmdirector" class="form-control">
+            <input id="filmdirector" formControlName="filmdirector" class="form-control">
           </div>
           <div class="mb-3">
             <label for="filmactors">Szereplők</label>
-            <input id="filmactors" class="form-control">
+            <input id="filmactors" formControlName="filmactors" class="form-control">
+          </div>
+          <div class="modal-footer">
+            <button type="button" formControlName="filmname" class="btn btn-primary" (click)="postFilmDetails()" (click)="modal.dismiss('ment')">Film hozzáadása</button>
           </div>
       </form>
     </div>
-    <div class="modal-footer">
-      <button type="button" class="btn btn-primary" (click)="postFilmDetails()">Film hozzáadása</button>
-    </div>
+    
   </ng-template>
   
   <button type="button" class="btn btn-success" (click)="open(content)">Hozzáadás</button>

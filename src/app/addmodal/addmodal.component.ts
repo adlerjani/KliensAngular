@@ -3,6 +3,7 @@ import {NgbModal, ModalDismissReasons} from '@ng-bootstrap/ng-bootstrap';
 import { FormBuilder,FormGroup } from '@angular/forms';
 import { FilmModel } from '../list/filmmodel';
 import { ApiService } from '../shared/api.service';
+import { ListComponent } from '../list/list.component';
 
 @Component({
   selector: 'mm-addmodal',
@@ -13,6 +14,7 @@ export class AddmodalComponent implements OnInit{
   closeResult = '';
   formValue!:FormGroup;
   filmModelObj:FilmModel=new FilmModel();
+  filmData !: any;
   constructor(private modalService: NgbModal,private formBuilder:FormBuilder,private api:ApiService) {}
 
   ngOnInit(): void {
@@ -22,18 +24,37 @@ export class AddmodalComponent implements OnInit{
       filmdirector:[''],
       filmactors:['']
     })
+    this.getAllFilms();
   }
-
+  
   postFilmDetails(){
-    this.filmModelObj.name=this.formValue.value.filmname;
+    if(this.formValue.value.filmname==="" ||
+    this.formValue.value.filmrelease==="" ||
+    this.formValue.value.filmdirector=="" ||
+    this.formValue.value.filmactors===""){
+      alert("Üres mezők!");
+    }else{
+      this.filmModelObj.name=this.formValue.value.filmname;
     this.filmModelObj.release=this.formValue.value.filmrelease;
     this.filmModelObj.director=this.formValue.value.filmdirector;
     this.filmModelObj.actors=this.formValue.value.filmactors;
-
+    //this.
+    //this.api.getFilm()
     this.api.postFilm(this.filmModelObj)
     .subscribe(res=>{
       console.log(res);
-      alert("jó")
+      //alert(this.formValue.value.filmname)
+      //this.formValue.reset();
+      this.getAllFilms()
+    })
+    }
+    
+  }
+
+  getAllFilms(){
+    this.api.getFilm()
+    .subscribe(res=>{
+      this.filmData=res;
     })
   }
 

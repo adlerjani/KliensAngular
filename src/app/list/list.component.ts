@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ApiService } from '../shared/api.service';
 import { FilmModel } from './filmmodel';
 
 interface Film {
@@ -31,11 +32,21 @@ const FilmList: Film[] = [
 })
 export class ListComponent implements OnInit{
    filmModelObj:FilmModel=new FilmModel();
-   constructor() { }
+   filmData !: any;
+   constructor(private api:ApiService) { }
 
   ngOnInit(): void {
+    this.getAllFilms();
   } 
+  
+  //films = this.getAllFilms();
+  
 
-  films = FilmList;
+  getAllFilms(){
+    this.api.getFilm()
+    .subscribe(res=>{
+      this.filmData=res;
+    })
+  }
 
 }
