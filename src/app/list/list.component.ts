@@ -50,6 +50,7 @@ export class ListComponent implements OnInit{
   }
 
   deleteFilm(row:any){
+    //console.log(typeof)
     this.api.deleteFilm(row.id).subscribe(res=>{
       //alert("törölve");
       this.getAllFilms();

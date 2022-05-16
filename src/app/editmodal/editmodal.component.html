@@ -1,1 +1,32 @@
-<p>editmodal works!</p>
+<ng-template #content let-modal>
+    <div class="modal-header">
+      <h4 class="modal-title" id="modal-basic-title">Film módosítása</h4>
+      <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+    </div>
+    <div class="modal-body">
+      <form [formGroup]="formValue">
+        <div class="mb-3">
+          <label for="filmname">Film címe</label>
+          <input id="filmname" formControlName="filmname" class="form-control">
+        </div>
+        <div class="mb-3">
+            <label for="filmrelease">Megjelenés dátuma</label>
+            <input id="filmrelease" formControlName="filmrelease" class="form-control">
+          </div>
+          <div class="mb-3">
+            <label for="filmdirector">Rendezte</label>
+            <input id="filmdirector" formControlName="filmdirector" class="form-control">
+          </div>
+          <div class="mb-3">
+            <label for="filmactors">Szereplők</label>
+            <input id="filmactors" formControlName="filmactors" class="form-control">
+          </div>
+          <div class="modal-footer">
+            <button type="button" formControlName="filmname" class="btn btn-primary" (click)="updateFilms()" (click)="modal.dismiss('ment')">Film módosítása</button>
+          </div>
+      </form>
+    </div>
+    
+  </ng-template>
+  
+  <button type="button" class="btn btn-primary" (click)="open(content)">Szerkesztés</button>

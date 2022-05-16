@@ -19,7 +19,7 @@
     <td>{{ row.director }}</td>
     <td>{{ row.actors }}</td>
     <td>
-      <button type="button" class="btn btn-primary">Szerkesztés</button>
+      <mm-editmodal [row]="row"></mm-editmodal>
       <button type="button" class="btn btn-danger" (click)="deleteFilm(row)">Törlés</button>
     </td>
   </tr>

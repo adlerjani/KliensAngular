@@ -23,6 +23,13 @@ export class ApiService {
     }))
   }
 
+  updateFilm(data:any,id:any){
+    return this.http.put<any>("http://localhost:3004/posts/"+id,data)
+    .pipe(map((res:any)=>{
+      return res;
+    }))
+  }
+
   deleteFilm(data:any){
     return this.http.delete("http://localhost:3004/posts/"+data)
     .pipe(map((res:any)=>{

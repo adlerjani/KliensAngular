@@ -1,13 +1,5 @@
 {
-  "posts": [
-    {
-      "id": 1,
-      "name": "Anyás",
-      "release": "1985",
-      "director": "A nagy ember",
-      "actors": "Füty Imre"
-    }
-  ],
+  "posts": [],
   "comments": [],
   "profile": {
     "name": "typicode"
